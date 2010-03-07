@@ -45,7 +45,7 @@ public class LironahInstaller extends Activity {
     		byte[] buf=new byte[1024];
     		
         	for (Integer res:install_hash.keySet()) {
-				File f = new File(path+install_hash.get(res));
+        		File f = new File(path+install_hash.get(res));
 				f.createNewFile();
 
 				FileOutputStream file_writer = new FileOutputStream(f);
@@ -58,7 +58,11 @@ public class LironahInstaller extends Activity {
 				
 				file_writer.close();
 				ins.close();
-	}
+        	}
+        	
+        	File f = new File(path+".nomedia");
+			f.createNewFile();        	
+        	
 		} catch (NotFoundException e) {
 			Log.e("gobandroid", e.toString());
 		} catch (IOException e) {
